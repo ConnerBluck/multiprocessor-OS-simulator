@@ -1,0 +1,60 @@
+CS 2200 Spring 2020
+Project 4
+
+Name: Conner Bluck
+GT Username: 903542468
+
+Problem 1B (FCFS Scheduler)
+----------
+
+Total Execution Time:
+
+1 CPU: 68.0 s
+2 CPU: 39.5 s
+4 CPU: 37.1 s
+
+Total execution time is not decreasing linearly. It is decreasing at an exponential rate because the simulated computer does not usually need more than 2 threads. Much of the CPU time is spent in idle waiting for a thread to run.
+
+Problem 2B (Round-Robin Scheduler)
+----------
+
+800 ms:
+Total Context Switches: 129
+Total execution time 68.8 s
+Total time spent in READY state: 322.7 s
+
+600 ms:
+Total Context Switches: 156
+Total execution time: 67.9 s
+Total time spent in READY state: 302.3 s
+
+400 ms:
+Total Context Switches: 202
+Total execution time: 67.9 s
+Total time spent in READY state: 291.7 s
+
+200 ms:
+Total Context Switches: 363
+Total execution time: 67.9 s
+Total time spent in READY state: 284.4 s
+
+The waiting time decreases linearly as the time slice decreases. The shortest time slice is usually not the best because if all processes are long then they will spend too much time context switching and it will take a long time for all process to finish.
+
+Problem 3B (Round-Robin With Priority)
+----------
+FCFS Waiting Time: 372.1 s
+Round Robin Waiting Time: 302.3 s
+Round Robin w/ Priority Waiting Time: 241.8 s
+
+Throughput 1 CPU: 8/309.7 = .026
+Throughput 2 CPU: 8/76.1 = .105
+Throughput 4 CPU: 8/37.8 = .21
+
+The throughput does improve in proportion to the number of CPUs. Round Robin w/ priority had the lowest wait time because it is the same as round robin but with an added priority element. The added priority allows for more efficient process selection.
+
+
+Problem 4 (The Priority Inversion Problem)
+---------
+
+I think a way to solve this problem would be to increase the priority of whatever process is currently running. So Z will have its priority increased as its running and as its close to finishing it has very high priority. This way its priority will increase past Y's priority and it won't preempt for Y and once Z finishes it will release control of S and X will execute before Y. 
+
